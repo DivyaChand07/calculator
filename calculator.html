@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url('https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1500w,f_auto,q_auto:best/rockcms/2023-11/231106-best-laptops-oo-main-efe15c.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .calculator {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 100px auto;
+            text-align: center;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding-right: 1px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #29a82e;
+            color: white;
+        }
+        
+        button:hover {
+            background-color: #051d06;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="h1">
+            <h2>First Digit</h2>
+        </div>
+        <div class="value1">
+            <input type="text" id="firstnumber" placeholder="Enter the first number">
+        </div>
+        <div class="h2">
+            <h2>Operator</h2>
+        </div>
+        <div class="Operator">
+            <input type="text" id="operator" placeholder="Operator">
+        </div>
+        <div class="h3">
+            <h2>Second Digit</h2>
+        </div>
+        <div class="value2">
+            <input type="text" id="secondnumber" placeholder="Enter the second number">
+        </div>
+        <div class="h4">
+            <h2>Results</h2>
+        </div>
+        <div class="Result">
+            <input type="text" id="Result" disabled>
+        </div>
+        <button class="btn1" id="calculatebutton">Calculate</button>
+    </div>
+
+    <script>
+        document.getElementById("calculatebutton").addEventListener('click', function() {
+            let firstnumber = Number(document.getElementById('firstnumber').value);
+            let operator = document.getElementById('operator').value;
+            let secondnumber = Number(document.getElementById('secondnumber').value);
+            let resultField = document.getElementById('Result');
+
+            let result;
+
+            if (isNaN(firstnumber) || isNaN(secondnumber)) {
+                result = 'Invalid input';
+            } else {
+                switch (operator) {
+                    case '+':
+                        result = firstnumber + secondnumber;
+                        break;
+                    case '-':
+                        result = firstnumber - secondnumber;
+                        break;
+                    case '*':
+                        result = firstnumber * secondnumber;
+                        break;
+                    case '/':
+                        result = firstnumber / secondnumber;
+                        break;
+                    default:
+                        result = 'Invalid operator';
+                        break;
+                }
+            }
+            resultField.value = result;
+        });
+
+
+
+
+
+
+        // EASY WAY_
+
+
+        /* 
+
+
+function cal(){
+    let num =  document.getElementById('num1').value;
+        let op =  document.getElementById('op').value;
+        let num2 =  document.getElementById('num2').value;
+
+
+        let Result =  document.getElementById('result');
+
+
+        switch (op) {
+            case '+':
+                alert(num + num2);
+            Result.innerText =  num + num2;
+                // alert(num + num2);
+                break;
+            case '-':
+                alert(num - num2);
+            Result.innerText =  num - num2;
+                // alert(num - num2);
+                break;
+            case '*':
+                alert(num * num2);
+            Result.innerText =  num * num2;
+                // alert(num * num2);
+                break;
+            case '/':
+                if(num2 === 0){
+                    alert("Cannot divide by zero!");
+                    Result.innerText ="Cannot divide by zero!";
+                } else {
+                    alert(num / num2);
+                    // alert(num / num2);
+                    Result.innerText =num / num2;
+                }
+                break;
+            default:
+                alert("Invalid operator!");
+            Result.innerText =  "Invalid operator!";
+                // alert("Invalid operator!");
+        }
+
+}
+*/
+    </script>
+</body>
+
+</html>
